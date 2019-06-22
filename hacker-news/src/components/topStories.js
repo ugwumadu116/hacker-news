@@ -14,6 +14,7 @@ const getBooksQuery = gql`
           id
         }
         timeISO
+        descendants
       }
     }
   }
@@ -46,15 +47,14 @@ class TopStories extends Component {
                 <div>loading data...</div>
             );
         } else {
-            console.log(data.hn.topStories.length)
             return data.hn.topStories.map(item => {
                 let formattedTime = this.formatTime(item.timeISO);
                 return (
-                    <li key={item.id}>
+                    <li key={item.id} id="list">
                         <div className="data-css">
                             <div className="first-stage1-container">
                                 <div className="first-item">
-                                    <div>{item.title}  {formattedTime}</div>
+                                    <span>{item.title}</span><span className="time">( {formattedTime} ago )</span>
                                 </div>
                                 <div className="first-stage2-container">
                                     <span className="two">
@@ -63,20 +63,20 @@ class TopStories extends Component {
                                     <span className="space">
                                     </span>
                                     <span className="two">
-                                        {item.by.id}
+                                        by {item.by.id}
                                     </span>
                                     <span className="space">
                                     </span>
                                     <span className="one">
-                                        {item.url}
+                                        <a href={item.url}>visit site</a>
                                     </span>
                                     <span className="space">
                                     </span>
                                 </div>
                                 <div className="stage-container">
-                                    <button className="btn1">button 1</button>
-                                    <button className="btn1">button 2</button>
-                                    <button className="btn1">button 3</button>
+                                    <button className="btn1">up vote</button>
+                                    <button className="btn1">hide</button>
+                                    <button className="btn1">{item.descendants === 0 ? <a href="em">discuss</a> : <a href="em">{item.descendants} comments</a>}</button>
                                 </div>
                             </div>
 

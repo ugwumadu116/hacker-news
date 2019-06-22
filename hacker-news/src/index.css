@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
-@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
-/* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" /> */
 * {
   margin: 0;
   padding: 0;
@@ -15,12 +12,15 @@ body {
   font-family: "Nunito";
   color: #f2f2f2;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
 .navbar {
   position: fixed;
   width: 100%;
   z-index: 123;
-  background-color: #222;
-  
+  background-color: #222;  
   display: flex;
   height: 70px;
   align-items: center;
@@ -28,107 +28,61 @@ body {
   padding: 10px;
   top: 0px;
 }
-
 .main-nav {
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+.logo img{
+  width: 1.8rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.main-nav li{
+  margin-left: 1.3rem;
+}
+.brand{
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.menu{
   display: none;
 }
-.nav-links{
-  text-decoration: none;
-  color: var(--WhiteColor);
-}
 
-.main-nav li {
-  text-align: center;
-  margin: 15px auto;
-  padding: 1.3rem 0;
-}
-.sign-up,
-.login {
-  font-weight: 700;
-}
-.sign-up-link {
-  background: var(--lightGreen);
-  border: 1px solid var(--mainGrey);
-  padding: 10px 15px;
-}
-.sign-up-link:hover {
-  background: transparent;
-  border: 1px solid var(--mainGrey);
-}
-.login-link {
-  background: transparent;
-  border: 1px solid var(--mainGrey);
-  padding: 10px 15px;
-}
-.login-link:hover {
-  background: var(--lightGreen);
-  border: 1px solid var(--mainGrey);
-}
-.works {
-  background: transparent;
-  padding: 10px 15px;
-}
-.works:hover {
-  background: var(--lightGreen);
-  padding: 10px 15px;
-  border: 1px solid var(--mainGrey);
-}
-.logo img {
-  width: 2rem;
-}
-.navbar-toggle {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  padding: 1.3rem 0;
-  cursor: pointer;
-  color: var(--WhiteColor);
-  font-size: 24px;
-}
-
-.display-nav {
-  display: block;
-  background: red;
-}
-@media screen and (min-width: 768px) {
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 0;
-    height: 70px;
-    align-items: center;
+@media screen and (max-width: 397px) {
+  .menu{
+    display: block;
+    position: absolute;
+    right: 30px;
   }
-
-  .main-nav {
-    display: flex;
-    margin-right: 30px;
-    flex-direction: row;
-    justify-content: flex-end;
+  .main-nav li{
+    padding: 5px;
   }
-
-  .main-nav li {
-    margin: 0;
+  .main-nav li:hover{
+    border-bottom: #f2f2f2 solid 1px;
   }
-
-  .nav-links {
-    margin-left: 40px;
+  
+  .main-nav{
+    visibility: hidden;
+    position: absolute;
+    top: 68px;
+    right: 10px;
+    z-index: 123;
+    width: 100%;
+    background-color: #222;
+    border-bottom: solid #222 5px;
   }
-
-  /* .logo {
-    margin-top: 0;
-  } */
-
-  .navbar-toggle {
-    display: none;
+  .display-nav{
+    visibility: visible;
+    
   }
 }
-
 #story-list{
   margin-top: 70px;
   padding:  0;
 }
-li{
+#list{
   list-style: none;
   padding: 12px;
   border-top: 1px solid rgb(54, 54, 54);
@@ -148,6 +102,7 @@ li{
   line-height: 24px;
   color: rgb(255, 255, 255);
 }
+
 .first-stage2-container{
   display: flex;
   flex-wrap: wrap;
@@ -155,10 +110,14 @@ li{
   line-height: 20px;
   max-width: 100%;
   padding-top: 4px;
-  color: rgb(170, 170, 170);
   font-size: 15px;
   -webkit-box-align: center;
   align-items: center;
+}
+.time{
+  color: rgb(170, 170, 170);
+  font-size: 15px;
+  margin-left: 1.2rem;
 }
 .one{
   white-space: nowrap;
@@ -189,7 +148,7 @@ li{
   transition: all 300ms ease 0s;
 }
 @media screen and (min-width: 768px) {
-  li{
+  #list{
     list-style: none;
     display: grid;
     align-items: center;
